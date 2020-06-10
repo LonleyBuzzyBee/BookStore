@@ -1,0 +1,13 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="bookbox">
+@foreach (Book book in Model)
+{
+  <div class="book">  
+    <h3>@book.Title</h3>
+    <h4>- @book.Author</h4>
+  </div>
+}
+</div>

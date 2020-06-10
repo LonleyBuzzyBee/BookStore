@@ -32,5 +32,10 @@ namespace bookstore.Models
 
       return book;
     }
+    public static void Post(Book book)
+    {
+      string jsonBook = JsonConvert.SerializeObject(book);
+      var apiCallTask = ApiHelper.Post(jsonBook);
+    }
   }
 }

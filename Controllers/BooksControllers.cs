@@ -16,6 +16,11 @@ namespace bookstore.Controllers
       return View(allBooks);
     }
 
-   
+    public IActionResult Details(int id)
+    {
+      var book = Book.GetDetails(id);
+      return View(book);
+    }
+    
   }
 }

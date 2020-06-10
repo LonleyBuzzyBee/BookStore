@@ -1,0 +1,20 @@
+<h1>Edit Info:</h1>
+
+<form action="/Books/Details/@(Model.BookId)" method="post">
+  <label for="title">Book's Title</label>
+  <input id="title" name="title" type="text" value="@(Model.Title)">
+
+  <label for="author">Book's author</label>
+  <input id="author" name="author" type="text" value="@(Model.Author)">
+
+  <label for="condition">Book's condition</label>
+  <select name="condition" id="Condition">
+    <option value="bad">Bad</option>
+    <option value="okay">Okay</option>
+    <option value="good">Good</option>
+    <option value="mint">Mint</option>
+  </select>
+  <button type="submit">Go!</button>
+</form>
+
+<a href="/Books/Details/@(Model.BookId)"><p>Return to Details</p></a>

@@ -21,6 +21,22 @@ namespace bookstore.Controllers
       var book = Book.GetDetails(id);
       return View(book);
     }
-    
+
+    public IActionResult Create()
+    {
+      return View();
+    }
+    [HttpPost]
+    public IActionResult Create(Book book)
+    {
+      Book.Post(book);
+      return RedirectToAction("Index");
+    }
+
+    public IActionResult Delete(int id)
+    {
+      Book.Delete(id);
+      return RedirectToAction("Index");
+    }
   }
 }

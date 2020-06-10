@@ -22,7 +22,7 @@ namespace bookstore.Models
       List<Book> bookList = JsonConvert.DeserializeObject<List<Book>>(jsonResponse.ToString());
       return bookList;
     }
-     public static Book GetDetails(int id)
+    public static Book GetDetails(int id)
     {
       var apiCallTask = ApiHelper.Get(id);
       var result = apiCallTask.Result;
@@ -36,6 +36,17 @@ namespace bookstore.Models
     {
       string jsonBook = JsonConvert.SerializeObject(book);
       var apiCallTask = ApiHelper.Post(jsonBook);
+    }
+
+    public static void Put(Book book)
+    {
+      string jsonBook = JsonConvert.SerializeObject(book);
+      var apiCallTask = ApiHelper.Put(book.BookId, jsonBook);
+    }
+
+    public static void Delete(int id)
+    {
+      var apiCallTask = ApiHelper.Delete(id);
     }
   }
 }

@@ -22,5 +22,15 @@ namespace bookstore.Models
       List<Book> bookList = JsonConvert.DeserializeObject<List<Book>>(jsonResponse.ToString());
       return bookList;
     }
+     public static Book GetDetails(int id)
+    {
+      var apiCallTask = ApiHelper.Get(id);
+      var result = apiCallTask.Result;
+
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Book book = JsonConvert.DeserializeObject<Book>(jsonResponse.ToString());
+
+      return book;
+    }
   }
 }

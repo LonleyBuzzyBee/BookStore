@@ -15,5 +15,7 @@ namespace bookstore.Controllers
       var allBooks = Book.GetBooks();
       return View(allBooks);
     }
+
+   
   }
 }

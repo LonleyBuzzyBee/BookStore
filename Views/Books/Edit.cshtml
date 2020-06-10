@@ -12,11 +12,12 @@
 
   @Html.Label("Title")
   @Html.TextBoxFor(model => model.Title)
-  @Html.Label("Available")
-  @Html.RadioButton("Available", true)
-  @Html.RadioButton("Available", false)
+   @Html.Label("Available")
+  @Html.TextBoxFor(model => model.Available, new {type="bool"})
+  @* @Html.RadioButton("Available", true)
+  @Html.RadioButton("Available", false) *@
 
   <input type="submit" value="Add Book"/>
 }
 
-<a href="/Books/Details/@(Model.BookId)"><p>Return to Details</p></a>
+<a href="/Books"><p>Return to books</p></a>

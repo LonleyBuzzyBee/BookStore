@@ -26,10 +26,22 @@ namespace bookstore.Controllers
     {
       return View();
     }
-    [HttpPost]
+    [HttpPut]
     public IActionResult Create(Book book)
     {
-      Book.Post(book);
+      Book.Put(book);
+      return RedirectToAction("Index");
+    }
+    public IActionResult Edit()
+    {
+      return View();
+    }
+    [HttpPut]
+    public IActionResult Edit(int id,Book book)
+
+    {
+      book.BookId = id;
+      Book.Put(book);
       return RedirectToAction("Index");
     }
 

@@ -6,8 +6,9 @@
 @foreach (Book book in Model)
 {
   <div class="book">  
-    <h3>@book.Title</h3>
-    <h4>- @book.Author</h4>
+    <h3><a href="/Books/Details/@book.BookId"><p>@book.Title</p></a></h3>
+    <h4> @book.Author</h4>
   </div>
 }
 </div>
+<a href="/Books/Create"><p>add a book</p></a>

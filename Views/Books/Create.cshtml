@@ -1,17 +1,49 @@
-<h1>New Animal:</h1>
+@model bookstore.Models.Book
+@* 
+<h1>New Book:</h1>
 
 <form action="/books" method="post">
-  <label for="title">Book Title</label>
-  <input id="title" name="title" type="text">
-  <label for="author">Enter the author</label>
-  <input id="author" name="author" type="text">
-  <label for="condition">Animal's Age</label>
-  <select name="condition" id="Condition">
+  <label for="Title">Book Title</label>
+  <input id="Title" name="Title" type="text">
+  <br>
+  <label for="Author">Enter the Author</label>
+  <input id="Author" name="Author" type="text">
+  <br>
+  <label for="Condition">Book's Condition</label>
+  <br>
+  <select name="Condition" id="Condition">
     <option value="bad">Bad</option>
     <option value="okay">Okay</option>
     <option value="good">Good</option>
     <option value="mint">Mint</option>
   </select>
+  <br>
+  <label>
+    <input type="radio" name="Available" value=true checked>
+    Available
+  </label>
+  <label>
+    <input type="radio" name="Available" value=false>
+    Not Available
+  </label>
 
   <button type="submit">Go!</button>
-</form>
+</form> *@
+
+@using (Html.BeginForm())
+{
+  @Html.Label("Condition")
+  @Html.TextBoxFor(model => model.Condition)
+  
+  @Html.Label("Author")
+  @Html.TextBoxFor(model => model.Author)
+
+  @Html.Label("Title")
+  @Html.TextBoxFor(model => model.Title)
+  @Html.Label("Available")
+  @Html.RadioButton("Available", true)
+  @Html.RadioButton("Available", false)
+
+
+  <input type="submit" value="Add Book"/>
+}

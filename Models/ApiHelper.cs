@@ -11,8 +11,19 @@ namespace bookstore.Models
       RestClient client = new RestClient("http://localhost:5006/api");
       RestRequest request = new RestRequest($"books", Method.GET);
       var response = await client.ExecuteTaskAsync(request);
+      
       return response.Content;
     }
+     public static async Task<string> GetPage(string page)
+    {
+      Console.WriteLine($"Page: {page} <========================");
+      RestClient client = new RestClient("http://localhost:5006/api");
+      RestRequest request = new RestRequest($"books?page={page}", Method.GET);
+      var response = await client.ExecuteTaskAsync(request);
+      
+      return response.Content;
+    }
+
 
     public static async Task<string> Get(int id)
     {

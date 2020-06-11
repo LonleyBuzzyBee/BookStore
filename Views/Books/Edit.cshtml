@@ -12,10 +12,9 @@
 
   @Html.Label("Title")
   @Html.TextBoxFor(model => model.Title)
-   @Html.Label("Available")
+  @Html.Label("Available")
   @Html.TextBoxFor(model => model.Available, new {type="bool"})
-  @* @Html.RadioButton("Available", true)
-  @Html.RadioButton("Available", false) *@
+ 
 
   <input type="submit" value="Add Book"/>
 }

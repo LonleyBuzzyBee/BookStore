@@ -15,6 +15,12 @@ namespace bookstore.Controllers
       var allBooks = Book.GetBooks();
       return View(allBooks);
     }
+    public IActionResult Page(string page)
+    {
+      Console.WriteLine($"========>{page}<========");
+      var allBooks = Book.GetBooks(page);
+      return View("Index", allBooks);
+    }
 
     public IActionResult Details(int id)
     {
@@ -26,7 +32,7 @@ namespace bookstore.Controllers
     {
       return View();
     }
-    [HttpPut]
+    [HttpPost]
     public IActionResult Create(Book book)
     {
       Book.Put(book);
@@ -36,10 +42,9 @@ namespace bookstore.Controllers
     {
       return View();
     }
-    [HttpPut]
+    [HttpPost]
     public IActionResult Edit(int id,Book book)
-
-    {
+  {
       book.BookId = id;
       Book.Put(book);
       return RedirectToAction("Index");

@@ -6,6 +6,7 @@ namespace bookstore.Models
 {
   class ApiHelper
   {
+    
     public static async Task<string> GetAll()
     {
       RestClient client = new RestClient("http://localhost:5006/api");

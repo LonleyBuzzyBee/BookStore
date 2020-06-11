@@ -18,9 +18,10 @@ namespace bookstore.Controllers
     }
     public IActionResult Page(string page)
     {
-    
+      Console.WriteLine($"------------{page}-----------");
       Console.WriteLine($"========>{page}<========");
       var allBooks = Book.GetBooks(page);
+      ViewBag.Page = (int.Parse(page)+1).ToString(); 
       return View("Index", allBooks);
     }
 

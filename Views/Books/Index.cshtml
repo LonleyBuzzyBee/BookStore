@@ -2,24 +2,25 @@
     Layout = "_Layout";
 }
 @using System;
+@using bookstore.Models;
+
+
+
+
 <div class="bookbox">
-@{int counter = 0;}
+
+
 @foreach (Book book in Model)
 {
-  int page = 2;
   <div class="book">
     <h3><a href="/Books/Details/@book.BookId"><p>@book.Title</p></a></h3>
     <h4> @book.Author</h4>
   </div>
-  counter+=1;
-  Console.WriteLine(counter);
-  if(counter%10 == 0 )
-  {
-  @Html.ActionLink($"page {page}", "Page", new { page = 2 })
-  }
+} 
 
-}
+@Html.ActionLink($"page {@ViewBag.Page}", "Page", new { page = @ViewBag.Page})
 </div>
+
 
 <a href="/Books/Create"><p>add a book</p></a>
 

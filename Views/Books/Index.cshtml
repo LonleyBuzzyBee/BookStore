@@ -1,15 +1,25 @@
 @{
     Layout = "_Layout";
 }
-
+@using System;
 <div class="bookbox">
+@{int counter = 0;}
 @foreach (Book book in Model)
 {
-  <div class="book">  
+  int page = 2;
+  <div class="book">
     <h3><a href="/Books/Details/@book.BookId"><p>@book.Title</p></a></h3>
     <h4> @book.Author</h4>
   </div>
+  counter+=1;
+  Console.WriteLine(counter);
+  if(counter%10 == 0 )
+  {
+  @Html.ActionLink($"page {page}", "Page", new { page = 2 })
+  }
+
 }
 </div>
+
 <a href="/Books/Create"><p>add a book</p></a>
-<a href="/Books/Page/@("2")"><p>page 2</p></a>
+

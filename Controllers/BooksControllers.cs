@@ -12,11 +12,13 @@ namespace bookstore.Controllers
   {
     public IActionResult Index()
     {
+      ViewBag.Page = 2;
       var allBooks = Book.GetBooks();
       return View(allBooks);
     }
     public IActionResult Page(string page)
     {
+    
       Console.WriteLine($"========>{page}<========");
       var allBooks = Book.GetBooks(page);
       return View("Index", allBooks);

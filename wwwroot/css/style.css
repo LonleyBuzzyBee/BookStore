@@ -1,0 +1,19 @@
+body{
+  
+}
+#bookbox 
+{
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  text-align: center;
+  
+  padding: 20px;
+  margin: 5px;
+}
+.footer{
+  background-color: rgb(212, 255, 255);
+}
+.headerTop{
+  background-color: rgb(212, 255, 255);
+}
